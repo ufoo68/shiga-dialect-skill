@@ -1,13 +1,13 @@
 // This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
-const Alexa = require('ask-sdk-core');
+import Alexa = require('ask-sdk-core');
 
 const LaunchRequestHandler = {
-    canHandle(handlerInput) {
+    canHandle(handlerInput: any) {
       return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
-    handle(handlerInput) {
+    handle(handlerInput: any) {
       const speechText = 'Welcome, you can say Hello or Help. Which would you like to try?';
       return handlerInput.responseBuilder
         .speak(speechText)
@@ -16,11 +16,11 @@ const LaunchRequestHandler = {
     }
 };
 const HelloWorldIntentHandler = {
-    canHandle(handlerInput) {
+    canHandle(handlerInput: any) {
       return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
     },
-    handle(handlerInput) {
+    handle(handlerInput: any) {
       const speechText = 'Hello World!';
       return handlerInput.responseBuilder
         .speak(speechText)
@@ -29,11 +29,11 @@ const HelloWorldIntentHandler = {
     }
 };
 const HelpIntentHandler = {
-    canHandle(handlerInput) {
+    canHandle(handlerInput: any) {
       return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
     },
-    handle(handlerInput) {
+    handle(handlerInput: any) {
       const speechText = 'You can say hello to me! How can I help?';
      
       return handlerInput.responseBuilder
@@ -43,12 +43,12 @@ const HelpIntentHandler = {
     }
 };
 const CancelAndStopIntentHandler = {
-    canHandle(handlerInput) {
+    canHandle(handlerInput: any) {
       return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
           || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
     },
-   handle(handlerInput) {
+   handle(handlerInput: any) {
       const speechText = 'Goodbye!';
       return handlerInput.responseBuilder
         .speak(speechText)
@@ -56,10 +56,10 @@ const CancelAndStopIntentHandler = {
     }
 };
 const SessionEndedRequestHandler = {
-    canHandle(handlerInput) {
+    canHandle(handlerInput: any) {
       return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
     },
-    handle(handlerInput) {
+    handle(handlerInput: any) {
       // Any cleanup logic goes here.
       return handlerInput.responseBuilder.getResponse();
     }
@@ -70,10 +70,10 @@ const SessionEndedRequestHandler = {
 // for your intents by defining them above, then also adding them to the request
 // handler chain below.
 const IntentReflectorHandler = {
-    canHandle(handlerInput) {
+    canHandle(handlerInput: any) {
       return handlerInput.requestEnvelope.request.type === 'IntentRequest';
     },
-    handle(handlerInput) {
+    handle(handlerInput: any) {
       const intentName = handlerInput.requestEnvelope.request.intent.name;
       const speechText = `You just triggered ${intentName}`;
  
@@ -91,7 +91,7 @@ const ErrorHandler = {
     canHandle() {
       return true;
     },
-    handle(handlerInput, error) {
+    handle(handlerInput: any, error: any) {
       console.log(`~~~~ Error handled: ${error.message}`);
       const speechText = `Sorry, I couldn't understand what you said. Please try again.`;
 
