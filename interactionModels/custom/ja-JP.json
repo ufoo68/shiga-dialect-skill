@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "hello node",
+            "invocationName": "滋賀弁スキル",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",

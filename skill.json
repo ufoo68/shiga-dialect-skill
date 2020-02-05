@@ -2,18 +2,18 @@
   "manifest": {
     "publishingInformation": {
       "locales": {
-        "en-US": {
-          "summary": "A basic skill made from Alexa Skills Kit template",
+        "ja-JP": {
+          "summary": "あらゆる言葉を滋賀弁に変換します。",
           "examplePhrases": [
-            "Alexa open hello node",
-            "Alexa tell hello node hello",
-            "Alexa ask hello node say hello"
+            "アレクサ、滋賀弁スキルを開いて",
+            "捨てる",
+            "つらいよ"
           ],
-          "name": "hello node",
-          "description": "A basic skill made from Alexa Skills Kit template"
+          "name": "滋賀弁スキル",
+          "description": "あらゆる言葉を滋賀弁に変換します。"
         }
       },
-      "isAvailableWorldwide": true,
+      "isAvailableWorldwide": false,
       "testingInstructions": "Sample Testing Instructions.",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
