@@ -15,8 +15,7 @@
   "lint-staged": {
     "*.ts": [
       "yarn lint",
-      "yarn build",
-      "git add"
+      "yarn build"
     ]
   },
   "author": "ufoo68",
