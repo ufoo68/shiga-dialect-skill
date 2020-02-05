@@ -4,5 +4,5 @@
 
 ## 構成
 
-`src`: 実際に開発(TypeScript)を行うディレクトリ
-`lambda/custom`: `src`からトランスパイルされた`.js`ファイルが格納されている
+- `src`: 実際に開発(TypeScript)を行うディレクトリ
+- `lambda/custom`: `src`からトランスパイルされた`.js`ファイルが格納されている
