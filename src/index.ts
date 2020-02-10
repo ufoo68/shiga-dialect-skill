@@ -7,43 +7,40 @@ const LaunchRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
   },
   handle(handlerInput: Alexa.HandlerInput): Response {
-    const speechText = 'Welcome, you can say Hello or Help. Which would you like to try?'
+    const speechText = 'なんか喋ってください。'
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
       .getResponse()
   },
 }
-const HelloWorldIntentHandler = {
+const AngryIntentHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean {
     return (
       handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent'
+      handlerInput.requestEnvelope.request.intent.name === 'AngryIntent'
     )
   },
   handle(handlerInput: Alexa.HandlerInput): Response {
-    const speechText = 'Hello World!'
-    return (
-      handlerInput.responseBuilder
-        .speak(speechText)
-        // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
-        .getResponse()
-    )
-  },
-}
-const HelpIntentHandler = {
-  canHandle(handlerInput: Alexa.HandlerInput): boolean {
-    return (
-      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent'
-    )
-  },
-  handle(handlerInput: Alexa.HandlerInput): Response {
-    const speechText = 'You can say hello to me! How can I help?'
-
+    const speechText = 'ちょかんなや！'
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
+      .reprompt('なんか喋ってください。')
+      .getResponse()
+  },
+}
+const ComeinIntentHandler = {
+  canHandle(handlerInput: Alexa.HandlerInput): boolean {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'ComeinIntent'
+    )
+  },
+  handle(handlerInput: Alexa.HandlerInput): Response {
+    const speechText = 'きやる。'
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .reprompt('なんか喋ってください。')
       .getResponse()
   },
 }
@@ -56,7 +53,7 @@ const CancelAndStopIntentHandler = {
     )
   },
   handle(handlerInput: Alexa.HandlerInput): Response {
-    const speechText = 'Goodbye!'
+    const speechText = 'ほな！'
     return handlerInput.responseBuilder.speak(speechText).getResponse()
   },
 }
@@ -75,9 +72,8 @@ const ErrorHandler = {
   canHandle(): boolean {
     return true
   },
-  handle(handlerInput: Alexa.HandlerInput, error: Error): Response {
-    console.log(`~~~~ Error handled: ${error.message}`)
-    const speechText = "Sorry, I couldn't understand what you said. Please try again."
+  handle(handlerInput: Alexa.HandlerInput): Response {
+    const speechText = 'もっかい、いってください。'
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -87,12 +83,7 @@ const ErrorHandler = {
 }
 
 exports.handler = Alexa.SkillBuilders.custom()
-  .addRequestHandlers(
-    LaunchRequestHandler,
-    HelloWorldIntentHandler,
-    HelpIntentHandler,
-    CancelAndStopIntentHandler,
-    SessionEndedRequestHandler,
-  )
+  // eslint-disable-next-line max-len
+  .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler)
   .addErrorHandlers(ErrorHandler)
   .lambda()

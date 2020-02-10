@@ -8,24 +8,23 @@
                     "samples": []
                 },
                 {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
                     "name": "AMAZON.StopIntent",
                     "samples": []
                 },
                 {
-                    "name": "HelloWorldIntent",
+                    "name": "AngryIntent",
                     "slots": [],
                     "samples": [
-                        "hello",
-                        "how are you",
-                        "say hi world",
-                        "say hi",
-                        "hi",
-                        "say hello world",
-                        "say hello"
+                        "調子に乗るな",
+                        "調子乗るな"
+                    ]
+                },
+                {
+                    "name": "ComeinIntent",
+                    "slots": [],
+                    "samples": [
+                        "来る",
+                        "来られる"
                     ]
                 }
             ],

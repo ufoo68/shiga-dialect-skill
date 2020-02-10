@@ -6,36 +6,36 @@ var LaunchRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle: function (handlerInput) {
-        var speechText = 'Welcome, you can say Hello or Help. Which would you like to try?';
+        var speechText = 'なんか喋ってください。';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
             .getResponse();
     },
 };
-var HelloWorldIntentHandler = {
+var AngryIntentHandler = {
     canHandle: function (handlerInput) {
         return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-            handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent');
+            handlerInput.requestEnvelope.request.intent.name === 'AngryIntent');
     },
     handle: function (handlerInput) {
-        var speechText = 'Hello World!';
-        return (handlerInput.responseBuilder
-            .speak(speechText)
-            // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse());
-    },
-};
-var HelpIntentHandler = {
-    canHandle: function (handlerInput) {
-        return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-            handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent');
-    },
-    handle: function (handlerInput) {
-        var speechText = 'You can say hello to me! How can I help?';
+        var speechText = 'ちょかんなや！';
         return handlerInput.responseBuilder
             .speak(speechText)
-            .reprompt(speechText)
+            .reprompt('なんか喋ってください。')
+            .getResponse();
+    },
+};
+var ComeinIntentHandler = {
+    canHandle: function (handlerInput) {
+        return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+            handlerInput.requestEnvelope.request.intent.name === 'ComeinIntent');
+    },
+    handle: function (handlerInput) {
+        var speechText = 'きやる。';
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt('なんか喋ってください。')
             .getResponse();
     },
 };
@@ -46,7 +46,7 @@ var CancelAndStopIntentHandler = {
                 handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent'));
     },
     handle: function (handlerInput) {
-        var speechText = 'Goodbye!';
+        var speechText = 'ほな！';
         return handlerInput.responseBuilder.speak(speechText).getResponse();
     },
 };
@@ -64,9 +64,8 @@ var ErrorHandler = {
     canHandle: function () {
         return true;
     },
-    handle: function (handlerInput, error) {
-        console.log("~~~~ Error handled: " + error.message);
-        var speechText = "Sorry, I couldn't understand what you said. Please try again.";
+    handle: function (handlerInput) {
+        var speechText = 'もっかい、いってください。';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
@@ -74,6 +73,7 @@ var ErrorHandler = {
     },
 };
 exports.handler = Alexa.SkillBuilders.custom()
-    .addRequestHandlers(LaunchRequestHandler, HelloWorldIntentHandler, HelpIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler)
+    // eslint-disable-next-line max-len
+    .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler)
     .addErrorHandlers(ErrorHandler)
     .lambda();
