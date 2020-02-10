@@ -14,8 +14,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint",
-      "yarn build"
+      "yarn lint"
     ]
   },
   "author": "ufoo68",
