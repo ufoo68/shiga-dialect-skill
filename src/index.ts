@@ -83,7 +83,12 @@ const ErrorHandler = {
 }
 
 exports.handler = Alexa.SkillBuilders.custom()
-  // eslint-disable-next-line max-len
-  .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler)
+  .addRequestHandlers(
+    LaunchRequestHandler,
+    AngryIntentHandler,
+    CancelAndStopIntentHandler,
+    SessionEndedRequestHandler,
+    ComeinIntentHandler,
+  )
   .addErrorHandlers(ErrorHandler)
   .lambda()
