@@ -26,6 +26,29 @@
                         "来る",
                         "来られる"
                     ]
+                },
+                {
+                    "name": "DumpIntent",
+                    "slots": [],
+                    "samples": [
+                        "捨てる"
+                    ]
+                },
+                {
+                    "name": "HardIntent",
+                    "slots": [],
+                    "samples": [
+                        "辛い",
+                        "しんどい"
+                    ]
+                },
+                {
+                    "name": "StriveIntent",
+                    "slots": [],
+                    "samples": [
+                        "頑張る",
+                        "努力する"
+                    ]
                 }
             ],
             "types": []

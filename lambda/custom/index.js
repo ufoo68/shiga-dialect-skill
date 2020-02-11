@@ -39,6 +39,45 @@ var ComeinIntentHandler = {
             .getResponse();
     },
 };
+var DumpIntentHandler = {
+    canHandle: function (handlerInput) {
+        return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+            handlerInput.requestEnvelope.request.intent.name === 'DumpIntent');
+    },
+    handle: function (handlerInput) {
+        var speechText = 'ほかす。';
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt('なんか喋ってください。')
+            .getResponse();
+    },
+};
+var HardIntentHandler = {
+    canHandle: function (handlerInput) {
+        return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+            handlerInput.requestEnvelope.request.intent.name === 'HardIntent');
+    },
+    handle: function (handlerInput) {
+        var speechText = 'かなん。';
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt('なんか喋ってください。')
+            .getResponse();
+    },
+};
+var StriveIntentHandler = {
+    canHandle: function (handlerInput) {
+        return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+            handlerInput.requestEnvelope.request.intent.name === 'StriveIntent');
+    },
+    handle: function (handlerInput) {
+        var speechText = 'きばる。';
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt('なんか喋ってください。')
+            .getResponse();
+    },
+};
 var CancelAndStopIntentHandler = {
     canHandle: function (handlerInput) {
         return (handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
@@ -55,8 +94,7 @@ var SessionEndedRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
     },
     handle: function (handlerInput) {
-        var speechText = 'ほな！';
-        return handlerInput.responseBuilder.speak(speechText).getResponse();
+        return handlerInput.responseBuilder.getResponse();
     },
 };
 var ErrorHandler = {
@@ -72,6 +110,6 @@ var ErrorHandler = {
     },
 };
 exports.handler = Alexa.SkillBuilders.custom()
-    .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler, ComeinIntentHandler)
+    .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler, ComeinIntentHandler, DumpIntentHandler, HardIntentHandler, StriveIntentHandler)
     .addErrorHandlers(ErrorHandler)
     .lambda();

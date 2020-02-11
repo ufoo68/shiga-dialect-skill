@@ -44,6 +44,51 @@ const ComeinIntentHandler = {
       .getResponse()
   },
 }
+const DumpIntentHandler = {
+  canHandle(handlerInput: Alexa.HandlerInput): boolean {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'DumpIntent'
+    )
+  },
+  handle(handlerInput: Alexa.HandlerInput): Response {
+    const speechText = 'ほかす。'
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .reprompt('なんか喋ってください。')
+      .getResponse()
+  },
+}
+const HardIntentHandler = {
+  canHandle(handlerInput: Alexa.HandlerInput): boolean {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'HardIntent'
+    )
+  },
+  handle(handlerInput: Alexa.HandlerInput): Response {
+    const speechText = 'かなん。'
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .reprompt('なんか喋ってください。')
+      .getResponse()
+  },
+}
+const StriveIntentHandler = {
+  canHandle(handlerInput: Alexa.HandlerInput): boolean {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'StriveIntent'
+    )
+  },
+  handle(handlerInput: Alexa.HandlerInput): Response {
+    const speechText = 'きばる。'
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .reprompt('なんか喋ってください。')
+      .getResponse()
+  },
+}
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean {
     return (
@@ -62,8 +107,7 @@ const SessionEndedRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest'
   },
   handle(handlerInput: Alexa.HandlerInput): Response {
-    const speechText = 'ほな！'
-    return handlerInput.responseBuilder.speak(speechText).getResponse()
+    return handlerInput.responseBuilder.getResponse()
   },
 }
 
@@ -88,6 +132,9 @@ exports.handler = Alexa.SkillBuilders.custom()
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler,
     ComeinIntentHandler,
+    DumpIntentHandler,
+    HardIntentHandler,
+    StriveIntentHandler,
   )
   .addErrorHandlers(ErrorHandler)
   .lambda()
