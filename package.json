@@ -15,7 +15,8 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint"
+      "yarn lint",
+      "yarn build --outDir ./lambda/custom"
     ]
   },
   "author": "ufoo68",

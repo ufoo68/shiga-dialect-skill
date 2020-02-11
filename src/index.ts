@@ -67,7 +67,7 @@ const HardIntentHandler = {
     )
   },
   handle(handlerInput: Alexa.HandlerInput): Response {
-    const speechText = 'かなん。'
+    const speechText = 'かなんわ。'
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt('なんか喋ってください。')
@@ -102,14 +102,6 @@ const CancelAndStopIntentHandler = {
     return handlerInput.responseBuilder.speak(speechText).getResponse()
   },
 }
-const SessionEndedRequestHandler = {
-  canHandle(handlerInput: Alexa.HandlerInput): boolean {
-    return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest'
-  },
-  handle(handlerInput: Alexa.HandlerInput): Response {
-    return handlerInput.responseBuilder.getResponse()
-  },
-}
 
 const ErrorHandler = {
   canHandle(): boolean {
@@ -130,7 +122,6 @@ exports.handler = Alexa.SkillBuilders.custom()
     LaunchRequestHandler,
     AngryIntentHandler,
     CancelAndStopIntentHandler,
-    SessionEndedRequestHandler,
     ComeinIntentHandler,
     DumpIntentHandler,
     HardIntentHandler,

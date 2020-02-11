@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var Alexa = require("ask-sdk-core");
 var LaunchRequestHandler = {
     canHandle: function (handlerInput) {
@@ -11,7 +11,7 @@ var LaunchRequestHandler = {
             .speak(speechText)
             .reprompt(speechText)
             .getResponse();
-    },
+    }
 };
 var AngryIntentHandler = {
     canHandle: function (handlerInput) {
@@ -24,7 +24,7 @@ var AngryIntentHandler = {
             .speak(speechText)
             .reprompt('なんか喋ってください。')
             .getResponse();
-    },
+    }
 };
 var ComeinIntentHandler = {
     canHandle: function (handlerInput) {
@@ -37,7 +37,7 @@ var ComeinIntentHandler = {
             .speak(speechText)
             .reprompt('なんか喋ってください。')
             .getResponse();
-    },
+    }
 };
 var DumpIntentHandler = {
     canHandle: function (handlerInput) {
@@ -50,7 +50,7 @@ var DumpIntentHandler = {
             .speak(speechText)
             .reprompt('なんか喋ってください。')
             .getResponse();
-    },
+    }
 };
 var HardIntentHandler = {
     canHandle: function (handlerInput) {
@@ -58,12 +58,12 @@ var HardIntentHandler = {
             handlerInput.requestEnvelope.request.intent.name === 'HardIntent');
     },
     handle: function (handlerInput) {
-        var speechText = 'かなん。';
+        var speechText = 'かなんわ。';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt('なんか喋ってください。')
             .getResponse();
-    },
+    }
 };
 var StriveIntentHandler = {
     canHandle: function (handlerInput) {
@@ -76,7 +76,7 @@ var StriveIntentHandler = {
             .speak(speechText)
             .reprompt('なんか喋ってください。')
             .getResponse();
-    },
+    }
 };
 var CancelAndStopIntentHandler = {
     canHandle: function (handlerInput) {
@@ -87,15 +87,7 @@ var CancelAndStopIntentHandler = {
     handle: function (handlerInput) {
         var speechText = 'ほな！';
         return handlerInput.responseBuilder.speak(speechText).getResponse();
-    },
-};
-var SessionEndedRequestHandler = {
-    canHandle: function (handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
-    },
-    handle: function (handlerInput) {
-        return handlerInput.responseBuilder.getResponse();
-    },
+    }
 };
 var ErrorHandler = {
     canHandle: function () {
@@ -107,9 +99,9 @@ var ErrorHandler = {
             .speak(speechText)
             .reprompt(speechText)
             .getResponse();
-    },
+    }
 };
 exports.handler = Alexa.SkillBuilders.custom()
-    .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, SessionEndedRequestHandler, ComeinIntentHandler, DumpIntentHandler, HardIntentHandler, StriveIntentHandler)
+    .addRequestHandlers(LaunchRequestHandler, AngryIntentHandler, CancelAndStopIntentHandler, ComeinIntentHandler, DumpIntentHandler, HardIntentHandler, StriveIntentHandler)
     .addErrorHandlers(ErrorHandler)
     .lambda();
