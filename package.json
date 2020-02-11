@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint ./src/*"
+    "lint": "eslint ./src/*",
+    "watch": "tsc -w"
   },
   "husky": {
     "hooks": {
@@ -14,8 +15,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint",
-      "yarn build"
+      "yarn lint"
     ]
   },
   "author": "ufoo68",
