@@ -9,6 +9,7 @@
   "author": "ufoo68 <mitarou.yuutarou@gmail.com> (https://qiita.com/ufoo68)",
   "license": "ISC",
   "dependencies": {
-    "ask-sdk-core": "^2.7.0"
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.25.1"
   }
 }
