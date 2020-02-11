@@ -61,10 +61,9 @@ const SessionEndedRequestHandler = {
   canHandle(handlerInput: Alexa.HandlerInput): boolean {
     return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest'
   },
-  // eslint-disable-next-line linebreak-style
   handle(handlerInput: Alexa.HandlerInput): Response {
-    // Any cleanup logic goes here.
-    return handlerInput.responseBuilder.getResponse()
+    const speechText = 'ほな！'
+    return handlerInput.responseBuilder.speak(speechText).getResponse()
   },
 }
 

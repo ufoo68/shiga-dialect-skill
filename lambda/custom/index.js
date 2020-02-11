@@ -54,10 +54,9 @@ var SessionEndedRequestHandler = {
     canHandle: function (handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
     },
-    // eslint-disable-next-line linebreak-style
     handle: function (handlerInput) {
-        // Any cleanup logic goes here.
-        return handlerInput.responseBuilder.getResponse();
+        var speechText = 'ほな！';
+        return handlerInput.responseBuilder.speak(speechText).getResponse();
     },
 };
 var ErrorHandler = {
